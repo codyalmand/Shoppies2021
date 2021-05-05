@@ -14,8 +14,12 @@ const style = {
 const Layout = () => {
     return (
         <main className = "row">
-            <div className = "col-6 containerLeft" style={style.containerLeft}>hello</div>
-            <div className = "col-6 containerRight" style={style.containerRight}>hello</div>
+            <div className = "col-6 containerLeft" style={style.containerLeft}>
+                hello
+            </div>
+            <div className = "col-6 containerRight" style={style.containerRight}>
+                hello
+            </div>
         </main>
     )
 }
