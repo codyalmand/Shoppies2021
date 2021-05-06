@@ -7,10 +7,9 @@ import Layout from './components/Layout'
 function App() {
   return (
     <div className="App">
-
       <Header/>
-      <Layout/>
-
+      <Layout>
+      </Layout>
     </div>
   );
 }
