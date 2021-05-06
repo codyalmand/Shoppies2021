@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class MoviesList extends React.Component {
     state = {
-        moviesList: ['tt2294629'],
+        moviesList: [''],
         searchTerm: ''
     };
 
@@ -41,13 +41,16 @@ class MoviesList extends React.Component {
         return (
             <div>
                 <form onSubmit={this.search}>
-                    <input
-                        placeholder="Search for a movie"
+                    <input style={{
+                    padding: '10px',
+                    border: 'solid',
+                    borderRadius:'20px',
+                    display: 'flex',
+                    flex: 'center',
+                }}
+                        placeholder="Search for movies"
                         onChange={this.handleChange}
                     />
-                    <button type="submit">
-                        <i className="fa fa-search" />
-                    </button>
                 </form>
                 {moviesList.length > 0 ? (
                     moviesList.map(movie => (

@@ -4,30 +4,32 @@ import MoviesList from './MoviesList';
 
 const style = {
     containerLeft: {
-        backgroundColor: '#BF87FF',
-        display: 'grid',
-        border: 'solid',
-        borderRadius: '30px',
-    },
-    containerRight: {
-        display: 'grid',
         backgroundColor: '#59FFFC',
-        paddingBottom: '500px',
+        display: 'grid',
         border: 'solid',
         borderRadius: '30px',
-    }
+        padding: '20px',
+        margin: '20px',
+    },
+    // containerRight: {
+    //     display: 'grid',
+    //     backgroundColor: '#BF87FF',
+    //     paddingBottom: '500px',
+    //     border: 'solid',
+    //     borderRadius: '30px',
+    // }
 }
 
 const Layout = () => {
     return (
         <main className = "row">
-            <div className = "col-6 containerLeft" style={style.containerLeft}>
+            <div className = "col containerLeft" style={style.containerLeft}>
             <Cards/>
             <MoviesList/>
             </div>
-            <div className = "col-6 containerRight" style={style.containerRight}>
+            {/* <div className = "col-6 containerRight" style={style.containerRight}>
                 
-            </div>
+            </div> */}
         </main>
     )
 }
