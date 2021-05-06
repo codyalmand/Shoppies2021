@@ -2,12 +2,13 @@ import React from 'react';
 
 const style = {
     containerLeft: {
-        backgroundColor: 'green',
+        backgroundColor: '#73FF9B',
         display: 'grid',
     },
     containerRight: {
         display: 'grid',
-        backgroundColor: 'blue',
+        backgroundColor: '#59FFFC',
+        paddingBottom: '1000px',
     }
 }
 
@@ -15,10 +16,10 @@ const Layout = () => {
     return (
         <main className = "row">
             <div className = "col-6 containerLeft" style={style.containerLeft}>
-                hello
+                
             </div>
             <div className = "col-6 containerRight" style={style.containerRight}>
-                hello
+                
             </div>
         </main>
     )

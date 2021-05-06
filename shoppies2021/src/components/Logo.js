@@ -10,12 +10,10 @@ const style = {
 
 class Logo extends Component { 
     render() { 
-        return ( 
-            <main>     
+        return (   
                 <img src={logo} alt={"logo"} id='logoStyle' style={style.logoStyle}/>
-            </main>
         )  
     }
 }
 
-export default Logo;
+export default Logo; 
