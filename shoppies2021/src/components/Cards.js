@@ -33,15 +33,10 @@ class Cards extends React.Component {
         }
 
         return (
-            <div className="movie-card-container" style={{maxWidth: '50%'}}>
-                <div className="image-container">
-                    <div className="bg-image"
-                        style={{backgroundImage: `url(${Poster})` }}
-                    />
-                </div>
+            <div className="movie-card-container">
                 <div className="movie-info">
                     <div>
-                    <img src={Poster} alt=''/>
+                    <img src={Poster} alt='Movie Poster'/>
                         <h1>{Title}</h1>
                         <small>Released Date: {Released}</small>
                     </div>

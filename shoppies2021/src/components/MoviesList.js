@@ -45,8 +45,8 @@ class MoviesList extends React.Component {
                     padding: '10px',
                     border: 'solid',
                     borderRadius:'20px',
-                    display: 'flex',
-                    flex: 'center',
+                    width: '100%',
+                    marginBottom: '8%',
                 }}
                         placeholder="Search for movies"
                         onChange={this.handleChange}
