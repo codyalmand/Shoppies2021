@@ -1,9 +1,10 @@
 import React from 'react';
 import Cards from './Cards'
+import MoviesList from './MoviesList';
 
 const style = {
     containerLeft: {
-        backgroundColor: '#73FF9B',
+        backgroundColor: '#BF87FF',
         display: 'grid',
         border: 'solid',
         borderRadius: '30px',
@@ -11,7 +12,7 @@ const style = {
     containerRight: {
         display: 'grid',
         backgroundColor: '#59FFFC',
-        paddingBottom: '1000px',
+        paddingBottom: '500px',
         border: 'solid',
         borderRadius: '30px',
     }
@@ -22,6 +23,7 @@ const Layout = () => {
         <main className = "row">
             <div className = "col-6 containerLeft" style={style.containerLeft}>
             <Cards/>
+            <MoviesList/>
             </div>
             <div className = "col-6 containerRight" style={style.containerRight}>
                 

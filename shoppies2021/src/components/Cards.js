@@ -1,9 +1,22 @@
 import React from 'react';
+import axios from 'axios';
+
 
 class Cards extends React.Component {
     state = {
         movieData: {}
     };
+
+    componentDidMount() {
+        const apikey = 'f99ae317';
+        axios.get(
+                `https://www.omdbapi.com/?apikey=${apikey}&i=${this.props.movieID}&plot=full`
+            )
+            .then(res => res.data)
+            .then(res => {
+                this.setState({ movieData: res });
+            });
+    }
 
     render() {
         const {
@@ -21,7 +34,7 @@ class Cards extends React.Component {
 
         return (
             <div className="movie-card-container">
-                <div className="image-container">hello
+                <div className="image-container">
                     <div 
                         className="bg-image"
                         style={{ backgroundImage: `url(${Poster})` }}
