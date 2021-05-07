@@ -7,8 +7,8 @@ import NomList from './NomList';
 const style = {
     row: {
         textAlign: 'center',
-        marginLeft: '250px',
-        marginRight: '250px',
+        // marginLeft: '250px',
+        // marginRight: '250px',
     },
     containerLeft: {
         backgroundColor: '#59FFFC',
@@ -17,16 +17,15 @@ const style = {
         borderRadius: '30px',
         padding: '20px',
         margin: '10px',
-        maxWidth: '50%',
+        maxWidth: '100%',
     },
     containerRight: {
         backgroundColor: '#BF87FF',
         display: 'grid',
-        flexDirection: 'center',
         border: 'solid',
         borderRadius: '30px',
         margin: '10px',
-        maxWidth: '50%',
+        maxWidth: '100%',
     }
 }
 
