@@ -1,6 +1,7 @@
 import React from 'react';
 import Cards from './Cards'
 import axios from 'axios';
+import props from './NomList';
 
 
 class MoviesList extends React.Component {
@@ -11,6 +12,7 @@ class MoviesList extends React.Component {
 
     search = event => {
         event.preventDefault();
+        
         const apikey = 'f99ae317';
         axios.get(
                 `https://www.omdbapi.com/?apikey=${apikey}&s=${this.state.searchTerm}&plot=full`
@@ -40,13 +42,13 @@ class MoviesList extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.search}>
+                <form onChange={props.onChange} onSubmit={this.search}>
                     <input style={{
                     padding: '10px',
                     border: 'solid',
                     borderRadius:'20px',
                     width: '100%',
-                    marginBottom: '8%',
+                    marginBottom: '5%',
                 }}
                         placeholder="Search for movies"
                         onChange={this.handleChange}

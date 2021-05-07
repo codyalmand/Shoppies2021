@@ -1,6 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import MovieButton from './MovieButton';
 
+const style = {
+    cardContainer: {
+        // maxWidth: '60%',
+        // maxHeight: '60%',
+    },
+    posterStyle: {
+        maxWidth: '30%',
+        maxHeight: '30%',
+    }
+}
 
 class Cards extends React.Component {
     state = {
@@ -33,20 +44,22 @@ class Cards extends React.Component {
         }
 
         return (
-            <div className="movie-card-container">
+            <div className="movie-card-container" style={style.cardContainer}>
                 <div className="movie-info">
                     <div>
-                    <img src={Poster} alt='Movie Poster'/>
-                        <h1>{Title}</h1>
+                        <img src={Poster} alt='Movie Poster' style={style.posterStyle}/>
+                        <h3>{Title}</h3>
                         <small>Released Date: {Released}</small>
                     </div>
-                    <h4>Rating: {imdbRating} / 10</h4>
+                    <p>Rating: {imdbRating} / 10</p>
                     <p>{Plot && Plot.substr(0, 350)}</p>
                     <div className="tags-container">
                         {Genre &&
                             Genre.split(', ').map(g => (
                                 <span key={g}>{g}</span>
                             ))}
+                            <MovieButton/>
+                            <br></br>
                     </div>
                 </div>
             </div>

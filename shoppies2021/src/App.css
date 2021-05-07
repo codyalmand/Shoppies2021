@@ -1,15 +1,17 @@
+
 html {
   background-color: #010101;
-}
-
-.bg-image {
-background-size: cover;
-background-repeat: no-repeat;
-width: 100%;
-height: 100%;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
+  .bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+
   .movie-card-container {
       flex-direction: column;
   }
