@@ -6,8 +6,8 @@ const style = {
         paddingLeft: '40px',
         paddingRight: '40px',
         borderRadius: '10px',
-        color: '#fff',
-        backgroundColor: '#010101',
+        color: '#010101',
+        backgroundColor: '#fff',
     }
 }
 

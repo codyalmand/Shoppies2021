@@ -5,9 +5,10 @@ const style = {
         padding: '8px',
         paddingLeft: '40px',
         paddingRight: '40px',
+        borderColor: '#010101',
         borderRadius: '10px',
-        color: '#fff',
-        backgroundColor: '#010101',
+        color: '#010101',
+        backgroundColor: '#fff',
     }
 }
 
@@ -18,7 +19,8 @@ function DeleteButton (props) {
             <div className="col-sm-12"  id="vote-button">
                 <br/>
                 <button style={style.button} disabled={props.disabled} 
-                    onClick={props.onClick}>Remove Movie{props.children}
+                    onClick={props.onClick}>
+                        {props.children}
                 </button>
                 <br></br>
                 <br></br>

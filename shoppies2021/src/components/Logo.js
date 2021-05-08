@@ -11,7 +11,7 @@ const style = {
 class Logo extends Component { 
     render() { 
         return (   
-                <img src={logo} alt={"logo"} id='logoStyle' style={style.logoStyle}/>
+                <img src={logo} alt={"Shoppie 2021 Logo"} id='logoStyle' style={style.logoStyle}/>
         )  
     }
 }

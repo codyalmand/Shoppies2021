@@ -13,18 +13,18 @@ const style = {
 
 let Cards = (props) => {
     return (
-        <div className="movie-card-container" style={style.cardContainer}>
-            <div className="movie-info">
+        <div className="movieCardContainer" style={style.cardContainer}>
+            <div className="movieInfo">
                 <div>
-                    <img src={props.poster} alt='Movie Poster' style={style.posterStyle}/>
-                    <h3>{props.title}</h3>
-                    <small>Released Date: {props.released}</small>
+                    <img src={props.Poster} alt='Movie Poster' style={style.posterStyle}/>
+                    <h3>{props.Title}</h3>
+                    <small>Released Date: {props.Released}</small>
                 </div>
-                <p>Rating: {props.imdbRating} / 10</p>
-                <p>{props.plot && props.plot.substr(0, 350)}</p>
-                <div className="tags-container">
-                    {props.genre &&
-                        props.genre.split(', ').map(g => (
+                <p>Rating: {props.Rating} / 10</p>
+                <p>{props.Plot && props.Plot.substr(0, 350)}</p>
+                <div className="tagsContainer">
+                    {props.Genre &&
+                        props.Genre.split(', ').map(g => (
                             <span key={g}>{g}</span>
                         ))}
                         <br></br>

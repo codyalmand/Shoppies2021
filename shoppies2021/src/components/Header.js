@@ -3,9 +3,9 @@ import Logo from '../components/Logo';
 
 const style = {
     row: {
-        backgroundColor: '#010101',
         display: 'grid',
         justifyContent: 'center',
+        backgroundColor: '#010101',
     }
 }
 
