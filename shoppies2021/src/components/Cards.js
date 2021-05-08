@@ -6,8 +6,8 @@ const style = {
         // maxHeight: '60%',
     },
     posterStyle: {
-        maxWidth: '30%',
-        maxHeight: '30%',
+        maxWidth: '15%',
+        maxHeight: '15%',
     }
 }
 

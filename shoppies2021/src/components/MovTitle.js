@@ -1,11 +1,11 @@
 import {React, Component} from 'react';
-import style from './NomTitle.css'
+import style from './MovTitle.css'
            
 class NomTitle extends Component { 
     render() { 
         return (   
-            <div className="NomText" style={style.NomStyle}>
-                Nominations
+            <div className="MovText" style={style.MovStyle}>
+                Select Movies
                 <hr></hr>
             </div>
         )  

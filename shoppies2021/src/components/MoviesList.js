@@ -3,6 +3,7 @@ import axios from 'axios';
 import Cards from './Cards'
 import MovieButton from "./MovieButton";
 import DeleteButton from "./DeleteButton";
+import MovTitle from './MovTitle';
 import NomTitle from './NomTitle';
 
 class MoviesList extends React.Component {
@@ -76,12 +77,12 @@ class MoviesList extends React.Component {
                         color: '#010101',
                         textAlign: 'center',
                         maxWidth: '100%',
-                        paddingTop: '5.7%',
                         border: 'solid',
                         borderColor: '#B684FF',
                         borderRadius: '25px',
                         margin: '2%',
                     }}>
+                        <MovTitle/>
                     {movieData ? (movieData.map(movie => (
                         <Cards
                             id = {movie.imdbID}
