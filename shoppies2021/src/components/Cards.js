@@ -20,15 +20,7 @@ let Cards = (props) => {
                     <h3>{props.Title}</h3>
                     <small>Released Date: {props.Released}</small>
                 </div>
-                <p>Rating: {props.Rating} / 10</p>
-                <p>{props.Plot && props.Plot.substr(0, 350)}</p>
-                <div className="tagsContainer">
-                    {props.Genre &&
-                        props.Genre.split(', ').map(g => (
-                            <span key={g}>{g}</span>
-                        ))}
                         <br></br>
-                </div>
                 {props.children}
             </div>
         </div>

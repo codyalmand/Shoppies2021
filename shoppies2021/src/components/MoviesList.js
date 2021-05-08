@@ -45,6 +45,11 @@ class MoviesList extends React.Component {
         }
     };
 
+    deleteMovie = data => {
+        var newNomineeArray = this.state.nominees.filter(nominee => nominee.imdbID !== data.imdbID);
+        this.setState({nominees: newNomineeArray});
+    }
+
     render() {
         const { movieData, nominees } = this.state
         return (
@@ -77,7 +82,7 @@ class MoviesList extends React.Component {
                         color: '#010101',
                         textAlign: 'center',
                         maxWidth: '100%',
-                        border: 'solid',
+                        border: 'ridge',
                         borderColor: '#B684FF',
                         borderRadius: '25px',
                         margin: '2%',
@@ -89,11 +94,12 @@ class MoviesList extends React.Component {
                             key = {movie.imdbID}
                             Poster = {movie.Poster}
                             Title = {movie.Title}
-                            Released = {movie.Released}
-                            imdbID = {movie.imdbID}
-                            Plot = {movie.Plot}
-                            Genre = {movie.Genre}>
-                            <MovieButton onClick={() => this.nominateMovie(movie)}>
+                            Released = {movie.Year}
+                            >
+                            <MovieButton 
+                                disabled={this.state.nominees.filter(nominee => nominee.imdbID === movie.imdbID).length === 1}
+                                onClick={() => this.nominateMovie(movie)}
+                             >
                                 Nominate Movie
                             </MovieButton>
                         </Cards>
@@ -113,7 +119,7 @@ class MoviesList extends React.Component {
                     <div className="col" style={{
                             backgroundColor: '#9B69FF',
                             color: '#fff',
-                            border: 'solid',
+                            border: 'ridge',
                             borderColor: '#84FFFE',
                             borderRadius: '25px',
                             margin: '2%',
@@ -127,11 +133,9 @@ class MoviesList extends React.Component {
                                     key = {nominee.imdbID}
                                     Poster = {nominee.Poster}
                                     Title = {nominee.Title}
-                                    Released = {nominee.Released}
-                                    imdbID = {nominee.imdbID}
-                                    Plot = {nominee.Plot}
-                                    Genre = {nominee.Genre}>
-                                    <DeleteButton>
+                                    Released = {nominee.Year}
+                                    >
+                                    <DeleteButton onClick={() => this.deleteMovie(nominee)}>
                                         Remove
                                     </DeleteButton>
                                 </Cards>
