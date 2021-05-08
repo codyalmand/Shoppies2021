@@ -12,14 +12,13 @@ const style = {
 }
 
 
-function MovieButton (props) {
+function DeleteButton (props) {
     return (
         <div className="row">
             <div className="col-sm-12"  id="vote-button">
                 <br/>
                 <button style={style.button} disabled={props.disabled} 
-                    onClick={props.onClick}>
-                    {props.children}
+                    onClick={props.onClick}>Remove Movie{props.children}
                 </button>
                 <br></br>
                 <br></br>
@@ -29,4 +28,4 @@ function MovieButton (props) {
     )
 }
 
-export default MovieButton;
+export default DeleteButton;

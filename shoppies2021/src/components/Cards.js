@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import MovieButton from './MovieButton';
 
 const style = {
     cardContainer: {
@@ -13,58 +11,28 @@ const style = {
     }
 }
 
-class Cards extends React.Component {
-    state = {
-        movieData: {}
-    };
-
-    componentDidMount() {
-        const apikey = 'f99ae317';
-        axios.get(
-                `https://www.omdbapi.com/?apikey=${apikey}&i=${this.props.movieID}&plot=full`
-            )
-            .then(res => res.data)
-            .then(res => {
-                this.setState({ movieData: res });
-            });
-    }
-
-    render() {
-        const {
-            Title,
-            Released,
-            Genre,
-            Plot,
-            Poster,
-            imdbRating
-        } = this.state.movieData;
-
-        if (!Poster || Poster === 'N/A') {
-            return null;
-        }
-
-        return (
-            <div className="movie-card-container" style={style.cardContainer}>
-                <div className="movie-info">
-                    <div>
-                        <img src={Poster} alt='Movie Poster' style={style.posterStyle}/>
-                        <h3>{Title}</h3>
-                        <small>Released Date: {Released}</small>
-                    </div>
-                    <p>Rating: {imdbRating} / 10</p>
-                    <p>{Plot && Plot.substr(0, 350)}</p>
-                    <div className="tags-container">
-                        {Genre &&
-                            Genre.split(', ').map(g => (
-                                <span key={g}>{g}</span>
-                            ))}
-                            <MovieButton/>
-                            <br></br>
-                    </div>
+let Cards = (props) => {
+    return (
+        <div className="movie-card-container" style={style.cardContainer}>
+            <div className="movie-info">
+                <div>
+                    <img src={props.poster} alt='Movie Poster' style={style.posterStyle}/>
+                    <h3>{props.title}</h3>
+                    <small>Released Date: {props.released}</small>
                 </div>
+                <p>Rating: {props.imdbRating} / 10</p>
+                <p>{props.plot && props.plot.substr(0, 350)}</p>
+                <div className="tags-container">
+                    {props.genre &&
+                        props.genre.split(', ').map(g => (
+                            <span key={g}>{g}</span>
+                        ))}
+                        <br></br>
+                </div>
+                {props.children}
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Cards;

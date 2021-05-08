@@ -1,62 +1,85 @@
 import React from 'react';
-import Cards from './Cards'
 import axios from 'axios';
-import props from './NomList';
+import Cards from './Cards'
+import MovieButton from "./MovieButton";
+import DeleteButton from "./DeleteButton";
 
 
 class MoviesList extends React.Component {
     state = {
-        moviesList: [''],
-        searchTerm: ''
+        searchTerm: '',
+        movieData: [],
+        nominees:[],
     };
 
-    search = event => {
-        event.preventDefault();
-        
+    search = () => {
         const apikey = 'f99ae317';
         axios.get(
                 `https://www.omdbapi.com/?apikey=${apikey}&s=${this.state.searchTerm}&plot=full`
             )
-            .then(res => res.data)
-            .then(res => {
-                if (!res.Search) {
-                    this.setState({ moviesList: [] });
-                    return;
-                }
+            .then( res => {
+                this.setState({ movieData: res.data.Search })
+            })
+        };
 
-                const moviesList = res.Search.map(movie => movie.imdbID);
-                this.setState({
-                    moviesList
-                });
+        handleChange = event => {
+            this.setState({
+                searchTerm: event.target.value
             });
-    };
+            const timeOutId = setTimeout(() => {
+                this.search();
+            }, 500);
+            return () => clearTimeout(timeOutId);
+        };
 
-    handleChange = event => {
-        this.setState({
-            searchTerm: event.target.value
-        });
-    };
+    nominateMovie = data => {
+        if (this.state.nominees.length < 5) {
+            console.log(data);
+            this.setState({
+                nominees: [...this.state.nominees, data]
+            });
+            console.log(this.state.nominees);
+        } else {
+            alert("You've already made 5 nominations...")
+        }
+    }
 
     render() {
-        const { moviesList } = this.state;
-
-        return (
-            <div>
-                <form onChange={props.onChange} onSubmit={this.search}>
-                    <input style={{
-                    padding: '10px',
-                    border: 'solid',
-                    borderRadius:'20px',
-                    width: '100%',
-                    marginBottom: '5%',
-                }}
-                        placeholder="Search for movies"
-                        onChange={this.handleChange}
-                    />
-                </form>
-                {moviesList.length > 0 ? (
-                    moviesList.map(movie => (
-                        <Cards movieID={movie} key={movie} />
+        const { movieData, nominees } = this.state
+            return (
+                <div className="row">
+                    <div className="col">
+                        <form onChange={this.handleChange}>
+                            <input style={
+                                {
+                            padding: '10px',
+                            border: 'solid',
+                            borderRadius:'20px',
+                            width: '100%',
+                            marginBottom: '5%',
+                            }
+                        }
+                            placeholder="Search for movies"
+                            onChange={this.handleChange}
+                            />
+                        </form>
+                    </div>
+                    <div className="row">
+                    <div className="col-12-sm col-md-4">
+                        {movieData ? (movieData.map(movie => (
+                                             <Cards 
+                                    id = {movie.imdbID} 
+                                    key = {movie.imdbID} 
+                                    poster = {movie.Poster} 
+                                    title = {movie.Title} 
+                                    released = {movie.Released} 
+                                    imdbID = {movie.imdbID} 
+                                    plot = {movie.Plot} 
+                                    genre = {movie.Genre}>
+                                    <MovieButton onClick={() => this.nominateMovie(movie)}>
+                                        Nominate This!
+                                    </MovieButton>
+                                </Cards>
                     ))
                 ) : (
                     <p>
@@ -64,7 +87,29 @@ class MoviesList extends React.Component {
                     </p>
                 )}
             </div>
-        );
+            <div className="col-12-sm col-md-8">
+                        {nominees.length > 0 ? (
+                            nominees.map(nominee => (
+                                <Cards 
+                                    id={nominee.imdbID} 
+                                    key={nominee.imdbID} 
+                                    poster={nominee.Poster} 
+                                    title={nominee.Title} 
+                                    released={nominee.Released} 
+                                    imdbID={nominee.imdbID} 
+                                    plot={nominee.Plot} 
+                                    genre={nominee.Genre}>
+                                    <DeleteButton/>
+                                </Cards>
+                            ))
+                        ) : (
+                            null
+                        )
+                        }
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
 
