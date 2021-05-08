@@ -1,5 +1,4 @@
 import React from 'react';
-import Cards from './Cards'
 import MoviesList from './MoviesList';
 import NomTitle from './NomTitle';
 import NomList from './NomList';
@@ -31,16 +30,7 @@ const style = {
 
 const Layout = () => {
     return (
-        <main className = "row" style={style.row}>
-            <div className = "col containerLeft" style={style.containerLeft}>
-                <Cards/>
-                <MoviesList/>
-            </div>
-            <div className = "col containerRight" style={style.containerRight}>
-                <NomTitle/>
-                <NomList/>
-            </div>
-        </main>
+        <MoviesList/>
     )
 }
 
