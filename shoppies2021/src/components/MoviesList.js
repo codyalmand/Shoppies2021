@@ -4,7 +4,17 @@ import Cards from './Cards'
 import MovieButton from "./MovieButton";
 import DeleteButton from "./DeleteButton";
 import MovTitle from './MovTitle';
+import Banner from './Banner';
 import NomTitle from './NomTitle';
+
+// Dictates if the winning nominee will be visible
+const [visible, setVisibility] = ("hidden");
+const winner = () => {
+    if (visible === "hidden") {
+        setVisibility("visible");
+    }
+};
+winner();
 
 let NomData = JSON.parse(window.localStorage.getItem("nomineeKey")) || [];
 
@@ -24,14 +34,14 @@ class MoviesList extends React.Component {
                 this.setState({ movieData: res.data.Search })
             })
     };
-    // search is updated per button press every 0.5 seconds
+    // search is updated per button press every 0.1 seconds
     handleChange = event => {
         this.setState({
             searchTerm: event.target.value
         });
         const timeOutId = setTimeout(() => {
             this.search();
-        }, 500);
+        }, 100);
         return () => clearTimeout(timeOutId);
     };
     // limits 5 nominations, and alerts when trying a sixth selection
@@ -44,17 +54,17 @@ class MoviesList extends React.Component {
             this.setState({
                 nominees: [...this.state.nominees, data]
             });
-        } else {
-            alert("You cannot nominate more than 5 movies!")
+        } else{
+            alert("Only 5 nominees allowed!")
         }
     };
-
+    // removes nomination from right column nomination list
     deleteMovie = data => {
         let newNomineeArray = this.state.nominees.filter(nominee => nominee.imdbID !== data.imdbID);
         this.setState({nominees: newNomineeArray});
         localStorage.clear();
         window.localStorage.setItem("nomineeKey", JSON.stringify(NomData))
-    }
+    };
 
     render() {
         const { movieData, nominees } = this.state
@@ -77,6 +87,27 @@ class MoviesList extends React.Component {
                             }}
                             placeholder="Search for movies"
                             onChange={this.handleChange}/>
+                    {/* {Once 5 nominees are picked this banner will be displayed} */}
+                        {this.state.nominees.length === 5 ? (
+                        <Banner onClick={() => winner()} disabled={visible === "visible"}>
+                            <h1 style={{
+                                color: "white", 
+                                visibility: `${visible}`,
+                                }}>
+                                <iframe src="https://giphy.com/embed/LPfGHdZ7jRmja01dr3" 
+                                    width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen>
+                                </iframe>
+                                <p>
+                                    <a href="https://giphy.com/gifs/beeinspiredclothing-bee-b33-inspired-LPfGHdZ7jRmja01dr3"></a>
+                                </p>
+                                    {this.state.nominees[Math.floor(Math.random() * this.state.nominees.length)].Title} 
+                                    <br/>
+                                    {this.state.nominees[Math.floor(Math.random() * this.state.nominees.length)].Year}
+                            </h1>
+                        </Banner>
+                            ) : (
+                                null
+                            )}
                     </form>
                 </div>
             {/* displays left column movie data + button */}
@@ -150,6 +181,27 @@ class MoviesList extends React.Component {
                         null
                         )
                         }
+                    {/* {Once 5 nominees are picked this banner will be displayed} */}
+                        {this.state.nominees.length === 5 ? (
+                        <Banner onClick={() => winner()} disabled={visible === "visible"}>
+                            <h1 style={{
+                                color: "white", 
+                                visibility: `${visible}`,
+                                }}>
+                                <iframe src="https://giphy.com/embed/LPfGHdZ7jRmja01dr3" 
+                                    width="300" height="150" frameBorder="0" class="giphy-embed" allowFullScreen>
+                                </iframe>
+                                <p>
+                                    <a href="https://giphy.com/gifs/beeinspiredclothing-bee-b33-inspired-LPfGHdZ7jRmja01dr3"></a>
+                                </p>
+                                    {this.state.nominees[Math.floor(Math.random() * this.state.nominees.length)].Title} 
+                                    <br/>
+                                    {this.state.nominees[Math.floor(Math.random() * this.state.nominees.length)].Year}
+                            </h1>
+                        </Banner>
+                            ) : (
+                                null
+                            )}
                     </div>
                 </div>
             </div>
