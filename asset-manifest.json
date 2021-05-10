@@ -1,29 +1,6 @@
 {
   "files": {
     "main.css": "/Shoppies2021/static/css/main.1bd37fd7.chunk.css",
-<<<<<<< HEAD
-    "main.js": "/Shoppies2021/static/js/main.57ecea5b.chunk.js",
-    "main.js.map": "/Shoppies2021/static/js/main.57ecea5b.chunk.js.map",
-    "runtime-main.js": "/Shoppies2021/static/js/runtime-main.98632209.js",
-    "runtime-main.js.map": "/Shoppies2021/static/js/runtime-main.98632209.js.map",
-    "static/css/2.800be05e.chunk.css": "/Shoppies2021/static/css/2.800be05e.chunk.css",
-    "static/js/2.ad5d8663.chunk.js": "/Shoppies2021/static/js/2.ad5d8663.chunk.js",
-    "static/js/2.ad5d8663.chunk.js.map": "/Shoppies2021/static/js/2.ad5d8663.chunk.js.map",
-    "static/js/3.ae7fe4af.chunk.js": "/Shoppies2021/static/js/3.ae7fe4af.chunk.js",
-    "static/js/3.ae7fe4af.chunk.js.map": "/Shoppies2021/static/js/3.ae7fe4af.chunk.js.map",
-    "index.html": "/Shoppies2021/index.html",
-    "static/css/2.800be05e.chunk.css.map": "/Shoppies2021/static/css/2.800be05e.chunk.css.map",
-    "static/css/main.1bd37fd7.chunk.css.map": "/Shoppies2021/static/css/main.1bd37fd7.chunk.css.map",
-    "static/js/2.ad5d8663.chunk.js.LICENSE.txt": "/Shoppies2021/static/js/2.ad5d8663.chunk.js.LICENSE.txt",
-    "static/media/Logo.9c18b1ff.gif": "/Shoppies2021/static/media/Logo.9c18b1ff.gif"
-  },
-  "entrypoints": [
-    "static/js/runtime-main.98632209.js",
-    "static/css/2.800be05e.chunk.css",
-    "static/js/2.ad5d8663.chunk.js",
-    "static/css/main.1bd37fd7.chunk.css",
-    "static/js/main.57ecea5b.chunk.js"
-=======
     "main.js": "/Shoppies2021/static/js/main.d7420b9f.chunk.js",
     "main.js.map": "/Shoppies2021/static/js/main.d7420b9f.chunk.js.map",
     "runtime-main.js": "/Shoppies2021/static/js/runtime-main.00530e97.js",
@@ -45,6 +22,5 @@
     "static/js/2.9fbe7d74.chunk.js",
     "static/css/main.1bd37fd7.chunk.css",
     "static/js/main.d7420b9f.chunk.js"
->>>>>>> 0a1202679d28197f430456e50de9a8b12ad66ad7
   ]
 }
