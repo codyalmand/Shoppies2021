@@ -6,11 +6,13 @@ import DeleteButton from "./DeleteButton";
 import MovTitle from './MovTitle';
 import NomTitle from './NomTitle';
 
+let NomData = JSON.parse(window.localStorage.getItem("nomineeKey")) || [];
+
 class MoviesList extends React.Component {
     state = {
         searchTerm: '',
         movieData: [],
-        nominees: [],
+        nominees: []
     };
 
     search = () => {
@@ -35,19 +37,23 @@ class MoviesList extends React.Component {
     // limits 5 nominations, and alerts when trying a sixth selection
     nominateMovie = data => {
         if (this.state.nominees.length < 5) {
+            NomData.push(data);
             console.log(data);
+            console.log(this.setState)
+            window.localStorage.setItem("nomineeKey", JSON.stringify(NomData))
             this.setState({
                 nominees: [...this.state.nominees, data]
             });
-            console.log(this.state.nominees);
         } else {
-            alert("You've already made 5 nominations...")
+            alert("You cannot nominate more than 5 movies!")
         }
     };
 
     deleteMovie = data => {
-        var newNomineeArray = this.state.nominees.filter(nominee => nominee.imdbID !== data.imdbID);
+        let newNomineeArray = this.state.nominees.filter(nominee => nominee.imdbID !== data.imdbID);
         this.setState({nominees: newNomineeArray});
+        localStorage.clear();
+        window.localStorage.setItem("nomineeKey", JSON.stringify(NomData))
     }
 
     render() {
@@ -94,7 +100,7 @@ class MoviesList extends React.Component {
                             key = {movie.imdbID}
                             Poster = {movie.Poster}
                             Title = {movie.Title}
-                            Released = {movie.Year}
+                            Year = {movie.Year}
                             >
                             <MovieButton 
                                 disabled={this.state.nominees.filter(nominee => nominee.imdbID === movie.imdbID).length === 1}
@@ -133,7 +139,7 @@ class MoviesList extends React.Component {
                                     key = {nominee.imdbID}
                                     Poster = {nominee.Poster}
                                     Title = {nominee.Title}
-                                    Released = {nominee.Year}
+                                    Year = {nominee.Year}
                                     >
                                     <DeleteButton onClick={() => this.deleteMovie(nominee)}>
                                         Remove

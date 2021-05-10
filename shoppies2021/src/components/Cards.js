@@ -18,7 +18,7 @@ let Cards = (props) => {
                 <div>
                     <img src={props.Poster} alt='Movie Poster' style={style.posterStyle}/>
                     <h3>{props.Title}</h3>
-                    <small>Released Date: {props.Released}</small>
+                    <small>Released Date: {props.Year}</small>
                 </div>
                         <br></br>
                 {props.children}
