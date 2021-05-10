@@ -2,9 +2,11 @@
 ![](https://img.shields.io/badge/created%20by-CodyAlmand-red)
 
 ![](https://github.com/codyalmand/Shoppies2021/blob/main/shoppies2021/src/assets/shoppiesApp.gif)
-
+<br/>
+<br/>
 ## View Deployed Site: https://codyalmand.github.io/Shoppies2021/
-
+<br/>
+<br/>
 ### Tools Utilized: React, Node, Axios, Bootstrap, Html, Css
 
 ## The Challenge 
